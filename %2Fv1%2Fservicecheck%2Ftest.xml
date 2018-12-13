@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/v1/servicecheck/test" path="/v1/servicecheck/test" id="7edc3543-4a7d-4697-95a9-70a1298d349b" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="7edc3543-4a7d-4697-95a9-70a1298d349bfileName">%2Fv1%2Fservicecheck%2Ftest</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="ServiceCheck_GetTestAsync" id="885ea674-2228-4ba6-9b54-552ed9ae406e" method="GET">
+    <con:description>Check that the service is functioning normally.</con:description>
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent>{ }</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>text/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent xsi:nil="true"/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>text/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent xsi:nil="true"/>
+    </con:representation>
+    <con:request name="Request 1" id="ecfa72cf-ceab-475d-a77b-4a2c4d135c77" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>http://ar-sitapp02</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="7920e01b-6aa0-4aa6-b5fa-853ae2d6c9f3">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="4fecc0e3-55da-4639-9650-c2051b3c5620">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="614704a9-166c-4258-98de-e41b659d5539">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="58513e8d-bd0b-44cf-afbb-74ff36b59b3a">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="a0221b8e-cf95-44ca-afe9-bd9241ed77ac">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="36a29dad-5845-477e-bd56-1f252768e89c">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="36a29dad-5845-477e-bd56-1f252768e89c">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="36a29dad-5845-477e-bd56-1f252768e89c">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:resource>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/v1/AU/Brands/EnrolSource/{enrolSource}" path="/v1/AU/Brands/EnrolSource/{enrolSource}" id="df9ffdfc-5821-4c5b-a5c4-775acbc6b71b" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="df9ffdfc-5821-4c5b-a5c4-775acbc6b71bfileName">%2Fv1%2FAU%2FBrands%2FEnrolSource%2F%7BenrolSource%7D</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter required="true">
+      <con:name>enrolSource</con:name>
+      <con:style>TEMPLATE</con:style>
+      <con:description>The enrolSource on the channel associated with the AU brand</con:description>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="AuBrand_GetBrandByEnrolSource" id="3f3dcc74-b85f-4d17-9a1c-efbf82680843" method="GET">
+    <con:description>Fetches a specified Au Brand by enrolsource and default product suite</con:description>
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent>{
+  "content" : {
+    "brandId" : 0,
+    "backgroundColour" : "string",
+    "primaryColour" : "string",
+    "secondaryColour" : "string",
+    "primaryLogoUrl" : "string",
+    "secondaryLogoUrl" : "string",
+    "emailWelcomeHeaderBannerUrl" : "string",
+    "emailHeaderBannerUrl" : "string",
+    "emailFooterBannerUrl" : "string",
+    "emailSeasonalBannerUrl" : "string",
+    "emailIcon1Url" : "string",
+    "emailIcon2Url" : "string",
+    "emailIcon3Url" : "string",
+    "emailIcon4Url" : "string",
+    "fromEmailAddress" : "string",
+    "replyToEmailAddress" : "string",
+    "communityWebsiteUrl" : "string",
+    "communityHomeWebsiteUrl" : "string",
+    "communityBolUrl" : "string",
+    "communityOmsUrl" : "string",
+    "communityOmsPasswordResetUrl" : "string",
+    "communityOmsWebsiteLogoLabel" : "string",
+    "businessPartnerMembershipNumberLabel" : "string",
+    "businessPartnerMembershipNumberHelpText" : "string",
+    "businessPartnerMembershipNumberIsRequired" : true,
+    "businessPartnerWelcomeMessages" : [ {
+      "iconName" : "string",
+      "message" : "string"
+    } ],
+    "businessPartnerProofPoints" : [ {
+      "iconName" : "string",
+      "message" : "string"
+    } ],
+    "hasUnderstoodChosenCoverText" : "string",
+    "phoneNumber" : "string",
+    "termsAndConditionsUrl" : "string",
+    "complaintResolutionUrl" : "string",
+    "securityPolicyUrl" : "string",
+    "privacyPolicyUrl" : "string",
+    "contactUsUrl" : "string",
+    "transferCertificateUrl" : "string",
+    "delegateAuthorityUrl" : "string",
+    "australianGovernmentRebateUrl" : "string",
+    "faviconsBasePath" : "string",
+    "sitemapURL" : "string",
+    "yourMembershipGuidelinesPdfUrl" : "string",
+    "fundRulesPdfUrl" : "string",
+    "pathToPurchaseBaseUrl" : "string",
+    "cssFiles" : [ "string" ],
+    "directDebitServiceAgreement" : "string",
+    "healthInsuranceDeclaration" : "string",
+    "termsAndConditionsPdfUrl" : "string"
+  },
+  "community" : {
+    "number" : "string",
+    "section" : "string",
+    "name" : "string",
+    "displayName" : "string",
+    "address1" : "string",
+    "address2" : "string",
+    "suburb" : "string",
+    "state" : "string",
+    "postCode" : "string",
+    "emailAddress" : "string",
+    "phoneNumber" : "string",
+    "faxNumber" : "string",
+    "hostname" : "string",
+    "brandId" : 0,
+    "brandName" : "string",
+    "partnerType" : "Community"
+  }
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>text/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent xsi:nil="true"/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>text/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent xsi:nil="true"/>
+    </con:representation>
+    <con:request name="Request 1" id="c6bfec94-e9ce-4565-b251-d6941b553526" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>http://ar-sitapp02</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="7920e01b-6aa0-4aa6-b5fa-853ae2d6c9f3">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="4fecc0e3-55da-4639-9650-c2051b3c5620">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="614704a9-166c-4258-98de-e41b659d5539">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="58513e8d-bd0b-44cf-afbb-74ff36b59b3a">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="a0221b8e-cf95-44ca-afe9-bd9241ed77ac">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="36a29dad-5845-477e-bd56-1f252768e89c">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="36a29dad-5845-477e-bd56-1f252768e89c">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="36a29dad-5845-477e-bd56-1f252768e89c">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:resource>

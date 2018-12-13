@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/v2/AU/members/referMember" path="/v2/AU/members/referMember" id="0d634bb0-2e4f-4633-85c1-0d6f599b8433" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="0d634bb0-2e4f-4633-85c1-0d6f599b8433fileName">%2Fv2%2FAU%2Fmembers%2FreferMember</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="AuMembersV2_ReferMember" id="3895fe54-c8da-4f4a-9f81-09b9adcf652c" method="POST">
+    <con:description>Registers that an applicant member was referred to Australian Unity by an existing member.</con:description>
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "applicantMemberNumber" : "string",
+  "applicantMemberName" : "string",
+  "applicantMemberDateOfBirth" : "2015-07-20T15:49:04-07:00",
+  "referrerMemberNumber" : "string",
+  "referrerFirstName" : "string",
+  "referrerLastName" : "string"
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>text/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>text/xml</con:mediaType>
+      <con:params/>
+      <con:sampleContent/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/x-www-form-urlencoded</con:mediaType>
+      <con:params/>
+      <con:sampleContent/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent>"string"</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>text/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent xsi:nil="true"/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>text/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent xsi:nil="true"/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>text/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>text/xml</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/x-www-form-urlencoded</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="250ae46a-43a3-4b76-b28a-587aaeccd483" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>http://envd-webservices.australianunity.com.au</con:endpoint>
+      <con:request>{\r
+  "applicantMemberNumber" : "string",\r
+  "applicantMemberName" : "string",\r
+  "applicantMemberDateOfBirth" : "2015-07-20T15:49:04-07:00",\r
+  "referrerMemberNumber" : "string",\r
+  "referrerFirstName" : "string",\r
+  "referrerLastName" : "string"\r
+}</con:request>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+    </con:request>
+    <con:request name="Request 2" id="c2646665-93a1-44a3-ba7b-38de16b75f06" mediaType="text/json">
+      <con:settings/>
+      <con:endpoint>http://envd-webservices.australianunity.com.au</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+    </con:request>
+    <con:request name="Request 3" id="75b553f8-7c16-4ee7-8fd9-39a5e4c6b1bd" mediaType="text/xml">
+      <con:settings/>
+      <con:endpoint>http://envd-webservices.australianunity.com.au</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+    </con:request>
+    <con:request name="Request 4" id="d777f685-546b-41ab-b087-7779f023a8f7" mediaType="application/x-www-form-urlencoded">
+      <con:settings/>
+      <con:endpoint>http://envd-webservices.australianunity.com.au</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

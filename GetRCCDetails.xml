@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="64ad5688-695e-4e30-ac0a-546696d740c3" discardOkResults="true" failOnError="false" failTestCaseOnErrors="false" keepSession="false" name="GetRCCDetails" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="b545eb8a-05a8-420f-b9ca-fe4ef7000388fileName">GetProducts</con:setting>
+    <con:setting id="aec60123-4c10-46d3-a12e-d4c749e8a6d9fileName">GetProducts</con:setting>
+    <con:setting id="f199b78e-7b1c-4972-a95f-5f4a026c788ffileName">GetMember</con:setting>
+    <con:setting id="5ad2347c-bf03-4cd5-96e0-f0dc2e37f288fileName">GetPolicyDetails</con:setting>
+    <con:setting id="64ad5688-695e-4e30-ac0a-546696d740c3fileName">GetRCCDetails</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="datasource" name="Microservices-RCCService DataSource" id="3cb99a77-ad3c-48a2-ac7e-ee63ede7989a">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.teststeps.datasource.DataSourceContainer@prepared-properties">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Data Connection">
+        <con:configuration>
+          <Connection>DB( Env D Services )</Connection>
+          <query>Select Distinct Top 4 Percent A.hpolicy As A_hpolicy, Rtrim(A.prod_2) As A_prod_2,
+  Rtrim(A.prod_3) As A_prod_3, Case A.scale When 'S' Then 'Single'
+    When 'C' Then 'Couple' When 'F' Then 'Family'
+  End As a_Scale, A.rebate_type As A_rebate_type, A.source As A_source,
+  Replace(A.lhc_loading, '.00', '.0') As A_lhc_loading, B.cust_status As
+  B_cust_status, C.income_tier As C_income_tier, D.curr_djf As D_curr_djf,
+  Case D.pay_fr_1 When 'M' Then 'Monthly' When 'F' Then 'Fortnightly'
+    When 'Q' Then 'Quarterly' When 'H' Then 'HalfYearly' When 'Y' Then 'Yearly'
+    When 'W' Then 'Weekly' End As D_pay_fr_1, Case D.pay_mh_1
+    When 'B' Then 'AccountNotice' When 'D' Then 'DirectDebit'
+  End As D_pay_Mh_1, Rtrim(A.rate_code) As A_rate_code, FORMAT(D.dpt_dte,
+  'yyyy-MM-ddTHH:mm:ss') As D_dpt_dte, FORMAT(E.birth_dte,
+  'yyyy-MM-ddTHH:mm:ss') As E_birth_dte, E.p_given As E_p_given, E.p_surname As
+  E_p_surname, F.addr_1 As address1, F.state As p_state, F.pcode As pp_postCode,
+  G.mobile_phone As G_mobile_phone, G.home_phone As G_home_phone
+From tw303 B Inner Join
+  tw202c G On G.customer = B.customer Inner Join
+  tw202 E On E.customer = B.customer Inner Join
+  tw301 D On D.client = B.customer Inner Join
+  tw541 C On C.client = B.customer Inner Join
+  tw304 A On A.hpolicy = B.customer Inner Join
+  tw207 F On F.customer = B.customer
+Where B.cust_status = 'A' And A.dte_on = (Select Max(A.dte_on) From tw304 A
+  Where A.hpolicy = B.customer) And D.lu_time = (Select Max(D.lu_time)
+  From tw301 D
+  Where D.hpolicy = B.customer And D.hstatus = 'A') And
+  E.dte_on = (Select Max(cover.dte_on) From tw202 cover
+  Where cover.addr_cust = B.customer) And C.dte_off = '9999-12-31'</query>
+          <fetchSize/>
+          <stored-procedure>false</stored-procedure>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>A_hpolicy</con:property>
+      <con:property>A_prod_2</con:property>
+      <con:property>A_prod_3</con:property>
+      <con:property>a_Scale</con:property>
+      <con:property>A_rebate_type</con:property>
+      <con:property>A_source</con:property>
+      <con:property>A_lhc_loading</con:property>
+      <con:property>B_cust_status</con:property>
+      <con:property>C_income_tier</con:property>
+      <con:property>D_curr_djf</con:property>
+      <con:property>D_pay_fr_1</con:property>
+      <con:property>D_pay_Mh_1</con:property>
+      <con:property>A_rate_code</con:property>
+      <con:property>D_dpt_dte</con:property>
+      <con:property>E_birth_dte</con:property>
+      <con:property>E_p_given</con:property>
+      <con:property>E_p_surname</con:property>
+      <con:property>address1</con:property>
+      <con:property>p_state</con:property>
+      <con:property>pp_postCode</con:property>
+      <con:property>G_mobile_phone</con:property>
+      <con:property>G_home_phone</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="REST Request" id="c3c709c7-ccca-4d97-92eb-1f06f43cfe17">
+    <con:settings/>
+    <con:config service="REST Service 1" resourcePath="/RightCoverCheck/v1/policy/MemberPolicy" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="REST Request" id="7c72edc3-9c5f-48dd-84da-e585fc56072b" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:request/>
+        <con:originalUri>https://envd-intapps/RightCoverCheck/swagger/ui/index</con:originalUri>
+        <con:assertion type="JsonPath Match" id="6a93ecfb-1048-46c6-860b-bc23dfabfa07" name="Name">
+          <con:configuration>
+            <path>$['accountName']</path>
+            <content>${Microservices-RCCService DataSource#E_p_given} ${Microservices-RCCService DataSource#E_p_surname}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="d780a150-bcc8-42cd-b6e0-1c115149f578" name="Pay Frequency">
+          <con:configuration>
+            <path>$['paymentFrequency']</path>
+            <content>${Microservices-RCCService DataSource#D_pay_fr_1}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="e3f4b94d-4d0d-405a-87b9-69b47ef02c77" name="payment Method">
+          <con:configuration>
+            <path>$['paymentMethod']</path>
+            <content>${Microservices-RCCService DataSource#D_pay_Mh_1}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="b1bf8091-2ae1-403e-b2b0-b746ae95459d" name="Income">
+          <con:configuration>
+            <path>$['incomeTier']</path>
+            <content>${Microservices-RCCService DataSource#C_income_tier}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="4e1618eb-43b1-4f79-aa19-841bdccfa2b0" name="Scale">
+          <con:configuration>
+            <path>$['scale']</path>
+            <content>${Microservices-RCCService DataSource#a_Scale}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="60d70301-ed85-41e9-acc6-70405222a4b7" name="DOB">
+          <con:configuration>
+            <path>$['dateOfBirth']</path>
+            <content>${Microservices-RCCService DataSource#E_birth_dte}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="0661f0ca-28e0-41bc-a735-85a9065582ad" name="PolicyLHC">
+          <con:configuration>
+            <path>$['policyLhcPercentage']</path>
+            <content>${Microservices-RCCService DataSource#A_lhc_loading}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="5b4819a1-abeb-4c6e-8ac2-9731421ea57a" name="RateCode">
+          <con:configuration>
+            <path>$['rateCode']</path>
+            <content>${Microservices-RCCService DataSource#A_rate_code}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Simple Contains" id="36b77cdc-8116-484e-9f36-164295e72912" name="Product1">
+          <con:configuration>
+            <token>${Microservices-RCCService DataSource#A_prod_2}</token>
+            <ignoreCase>false</ignoreCase>
+            <useRegEx>false</useRegEx>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="Simple Contains" id="15521639-d5cb-4d6a-9838-bc0dec1e16f6" name="Product 2">
+          <con:configuration>
+            <token>${Microservices-RCCService DataSource#A_prod_3}</token>
+            <ignoreCase>false</ignoreCase>
+            <useRegEx>false</useRegEx>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:addedBasicAuthenticationTypes>NTLM</con:addedBasicAuthenticationTypes>
+          <con:authType>NTLM</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <entry key="id" value="${Microservices-RCCService DataSource#A_hpolicy}" xmlns="http://eviware.com/soapui/config"/>
+        </con:parameters>
+        <con:parameterOrder>
+          <con:entry>id</con:entry>
+        </con:parameterOrder>
+        <con:environmentSpec>
+          <con:entry environmentId="fd18fc2c-58c5-4cbc-8ed5-cd184e855cf8">
+            <con:authProfile>NTLM</con:authProfile>
+            <con:username>Pbobba</con:username>
+            <con:password>ramana@2018</con:password>
+            <con:domain>AUSTRALIANUNITY</con:domain>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="Microservices-RCCService DataSource Loop" id="157975f2-0eb4-4ffa-8b69-e09ed08fda4f">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>Microservices-RCCService DataSource</dataSourceStep>
+      <targetStep>REST Request</targetStep>
+      <discardResults>true</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>16fd98bf-09e0-458b-b368-177d03a9a8c0</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>cefc53cb-3286-478d-9c87-d8c9df324169</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>eee33e84-ae2f-48de-90c8-5d0e008994dc</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>863f65fd-a749-47be-a965-dc8a75be3cc7</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>aa62e2c5-1ca4-45f2-b0a4-ac0ce7606416</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>59f16d1a-c4bc-412f-b027-19188f38900c</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:environmentSpec>
+    <con:entry environmentId="5961521e-074b-41e9-ba2d-958d23577f88">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="28450cf3-6623-435c-86a0-8394b7c10239">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="be5c9063-dfda-40a2-8997-f3d729d7789b">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="00732af1-18b1-416d-b654-e9e4a007a736">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="31836d1d-2417-432e-83be-91253c395049">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="a30c7f6a-9cfd-49fc-a6c0-dcdd91a0a9ce">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="6639878e-e398-4489-8965-c7a8c86302c1">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="fd18fc2c-58c5-4cbc-8ed5-cd184e855cf8">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="17299313-9d9a-4b4e-9b52-edf5b9a2f6f7">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="686addd1-7280-4a49-9f6b-300c74c470f7">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="0d42c772-62c4-47be-8f35-1665d02d474d">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="7920e01b-6aa0-4aa6-b5fa-853ae2d6c9f3">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="4fecc0e3-55da-4639-9650-c2051b3c5620">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="614704a9-166c-4258-98de-e41b659d5539">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="58513e8d-bd0b-44cf-afbb-74ff36b59b3a">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="a0221b8e-cf95-44ca-afe9-bd9241ed77ac">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="36a29dad-5845-477e-bd56-1f252768e89c">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

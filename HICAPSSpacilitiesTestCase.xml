@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="4aa54cca-648a-4fe8-8348-a0179b3c31b8" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="HICAPSSpacilitiesTestCase" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" xmlns:con="http://eviware.com/soapui/config">
+  <con:description>The test case generated for the REST resource [/Provider/{id}] located at [/Provider/{id}]</con:description>
+  <con:settings>
+    <con:setting id="dd6861ff-bed2-4c82-96e9-19eca3785426fileName">SmileProviderServiceById-TestCase</con:setting>
+    <con:setting id="0fd32225-0ce2-44bd-b129-c494ce8f4e03fileName">NoGapProviderServiceById-TestCase</con:setting>
+    <con:setting id="8bd5091b-2d44-4c34-b862-a1ea7fb3cf43fileName">NoGapProviderServiceTestCase</con:setting>
+    <con:setting id="4aa54cca-648a-4fe8-8348-a0179b3c31b8fileName">HICAPSSpacilitiesTestCase</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="datasource" name="Microservices-HICAPSpecilities DataSource" id="3fadd68e-0d19-49bb-8fce-a4a104bde275">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.teststeps.datasource.DataSourceContainer@prepared-properties">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="JDBC">
+        <con:configuration>
+          <driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver>
+          <connstr>jdbc:sqlserver://ar-sitsql21\inst02;databaseName=;integratedSecurity=true</connstr>
+          <pass>Password@10</pass>
+          <Connection>DB( Env D Services )</Connection>
+          <query>Select Top 2000 REPLACE(Provider.WHICSID, '|', '') As ProviderID, Provider.Type as Provider_Type,
+  Provider.ResidentialAddress1 as Provider_ResidentialAddress1, Provider.ResidentialAddress2 as Provider_ResidentialAddress2,
+  Provider.ResidentialSuburb as Provider_ResidentialSuburb, Provider.ResidentialPostcode as Provider_ResidentialPostcode, Provider.State as Provider_State,
+  Rtrim(isNull(Provider.Salutation, '')) + ' ' +
+  Rtrim(isNull(Provider.FirstName, '')) + ' ' + Rtrim(isNull(Provider.Surname,
+  '')) As providerName, Provider.EmailAddress as Provider_EmailAddress, Provider.PhoneNumber as Provider_PhoneNumber,
+  Provider.MobilePhoneNumber as Provider_MobilePhoneNumber, Provider.Status as Provider_Status, Provider.Category as Provider_Category,
+  Provider.Speciality as Provider_Speciality
+From Provider
+Where Provider.Status = 'Active' And Provider.Category = 'Gap Cover Doctor'</query>
+          <fetchSize/>
+          <stored-procedure>false</stored-procedure>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>ProviderID</con:property>
+      <con:property>Provider_Type</con:property>
+      <con:property>Provider_ResidentialAddress1</con:property>
+      <con:property>Provider_ResidentialAddress2</con:property>
+      <con:property>Provider_ResidentialSuburb</con:property>
+      <con:property>Provider_ResidentialPostcode</con:property>
+      <con:property>Provider_State</con:property>
+      <con:property>providerName</con:property>
+      <con:property>Provider_EmailAddress</con:property>
+      <con:property>Provider_PhoneNumber</con:property>
+      <con:property>Provider_MobilePhoneNumber</con:property>
+      <con:property>Provider_Status</con:property>
+      <con:property>Provider_Category</con:property>
+      <con:property>Provider_Speciality</con:property>
+      <con:startRow/>
+      <con:endRow/>
+      <con:recordsPerIteration>1</con:recordsPerIteration>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:trimValues>false</con:trimValues>
+      <con:entitizeValues>false</con:entitizeValues>
+      <con:restartOnRun>true</con:restartOnRun>
+      <con:expandProperties>false</con:expandProperties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="ProviderService-GetHICAPProviderSearch" id="5185f0b4-6639-4db0-a851-e07f8a447643">
+    <con:settings/>
+    <con:config service="Health.ProviderService 2" resourcePath="/Health.ProviderService/Provider/Search" methodName="Provider_SearchProvider" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="ProviderService-GetHICAPProviderSearch" id="c2f4c4c6-8631-4f50-a927-7f73b3fd3464" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          <con:setting id="RecordRequestRepresentations">false</con:setting>
+        </con:settings>
+        <con:request>{
+  "providerType": "",
+  "specialities": "${Microservices-HICAPSpecilities DataSource#code}",
+  "providerName":"",
+  "practiceName" :"",
+  "latitude": "",
+  "longtitude": "",
+  "pageNumber": 0
+}</con:request>
+        <con:originalUri>http://envd-webservices.australianunity.com.au/Health.ProviderService/Provider/1122</con:originalUri>
+        <con:assertion type="MessageContentAssertion" id="61e006d5-a1af-4321-a92c-27ae0f2c586a" name="Message Content Assertion">
+          <con:configuration xsi:type="con:MessageContentAssertion">
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://envd-webservices.australianunity.com.au/Health.ProviderService/Provider/1122';
+//ns1:Response[1]/ns1:totalOverallRecords[1]</con:xpath>
+              <con:element>totalOverallRecords</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>&lt;</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue>0</con:expectedValue>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>true</con:numberType>
+            </con:elements>
+            <con:originalMessage><![CDATA[<Response xmlns="http://envd-webservices.australianunity.com.au/Health.ProviderService/Provider/1122">
+   <providers>
+      <e>
+         <id>0</id>
+         <sourceProviderId>AU5</sourceProviderId>
+         <providerName>Australian Unity Dental &amp; Healthcare</providerName>
+         <practiceName/>
+         <dpid>77431684</dpid>
+         <addressLine1>114 Albert Road</addressLine1>
+         <addressLine2/>
+         <suburb>South Melbourne</suburb>
+         <state>VIC</state>
+         <postcode>3205</postcode>
+         <contactNumber>1300700541</contactNumber>
+         <emailAddress/>
+         <bookingUrl/>
+         <longitude>144.9698313</longitude>
+         <latitude>-37.8356354</latitude>
+         <comments/>
+         <isPrivate>false</isPrivate>
+         <isDelete>false</isDelete>
+         <isUpdate>false</isUpdate>
+         <specialities>Dental</specialities>
+         <providerTypes>Australian Unity Dental</providerTypes>
+         <modifiedBy>wM</modifiedBy>
+         <createdDatetimeUtc>17/08/2018 2:45:45 AM</createdDatetimeUtc>
+         <modifiedDatetimeUtc>17/08/2018 2:45:45 AM</modifiedDatetimeUtc>
+         <totalOverallRecords>1</totalOverallRecords>
+      </e>
+   </providers>
+   <totalOverallRecords>1</totalOverallRecords>
+</Response>]]></con:originalMessage>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <entry key="id" value="${Microservices-NoGapProviderService DataSource#id}" xmlns="http://eviware.com/soapui/config"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="36a29dad-5845-477e-bd56-1f252768e89c">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="Microservices-HICAPSpecilitiesService DataSource Loop" id="d3c1f454-eae6-4df4-9af4-a24f6ee2b3de">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>Microservices-HICAPSpecilities DataSource</dataSourceStep>
+      <targetStep>ProviderService-GetHICAPProviderSearch</targetStep>
+      <discardResults>false</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>c103d8d1-fd18-49ca-bc4b-510917162a82</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>8dbba0de-d103-465a-bc69-9df1e3cad9cb</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>c5d78654-9e48-4b60-aa38-33e8852ba5f8</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:environmentSpec>
+    <con:entry environmentId="36a29dad-5845-477e-bd56-1f252768e89c">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>

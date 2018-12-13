@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/v1/AU/members/{memberIdentifier}" path="/v1/AU/members/{memberIdentifier}" id="288f1c74-d96d-4b9f-8304-82bc377f99fe" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="288f1c74-d96d-4b9f-8304-82bc377f99fefileName">%2Fv1%2FAU%2Fmembers%2F%7BmemberIdentifier%7D</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter required="true">
+      <con:name>memberIdentifier</con:name>
+      <con:style>TEMPLATE</con:style>
+      <con:description xsi:nil="true"/>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="AuMembersV1_GetMember" id="c405c71c-fe91-4f1e-9e46-5339cfe42c50" method="GET">
+    <con:description/>
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent>{
+  "membershipNumber" : "string",
+  "memberId" : "string",
+  "effectiveDate" : "2015-07-20T15:49:04-07:00",
+  "salutation" : "Mr",
+  "firstName" : "string",
+  "lastName" : "string",
+  "dateOfBirth" : "2015-07-20T15:49:04-07:00",
+  "certifiedAge" : "string",
+  "gender" : "Male",
+  "email" : "string",
+  "phoneNumbers" : [ {
+    "type" : "Home",
+    "number" : "string"
+  } ],
+  "addresses" : [ {
+    "type" : "Street",
+    "dpid" : "string",
+    "line1" : "string",
+    "line2" : "string",
+    "suburb" : "string",
+    "state" : "string",
+    "country" : "string",
+    "postcode" : "string"
+  } ],
+  "hasReturnedMail" : true,
+  "hasPrivacy" : true
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>text/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent xsi:nil="true"/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>text/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent xsi:nil="true"/>
+    </con:representation>
+    <con:request name="Request 1" id="d80f4d2c-065e-45c1-8a67-969c6693959a" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>http://envd-webservices.australianunity.com.au</con:endpoint>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+  <con:method name="AuMembersV1_PutMember" id="8a58b99b-1d02-4ee3-9692-9c3a5d142531" method="PUT">
+    <con:description/>
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "membershipNumber" : "string",
+  "memberId" : "string",
+  "effectiveDate" : "2015-07-20T15:49:04-07:00",
+  "salutation" : "string",
+  "firstName" : "string",
+  "lastName" : "string",
+  "dateOfBirth" : "2015-07-20T15:49:04-07:00",
+  "gender" : "string",
+  "email" : "string",
+  "phoneNumbers" : [ {
+    "type" : "Home",
+    "number" : "string"
+  } ],
+  "addresses" : [ {
+    "type" : "Street",
+    "dpid" : "string",
+    "line1" : "string",
+    "line2" : "string",
+    "suburb" : "string",
+    "state" : "string",
+    "country" : "string",
+    "postcode" : "string"
+  } ],
+  "hasReturnedMail" : true
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>text/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>text/xml</con:mediaType>
+      <con:params/>
+      <con:sampleContent/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/x-www-form-urlencoded</con:mediaType>
+      <con:params/>
+      <con:sampleContent/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent>"string"</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>text/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent xsi:nil="true"/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>text/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent xsi:nil="true"/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>text/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>text/xml</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/x-www-form-urlencoded</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="05f45294-b551-4376-949a-7e6ebc0ba76b" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>http://envd-webservices.australianunity.com.au</con:endpoint>
+      <con:request>{\r
+  "membershipNumber" : "string",\r
+  "memberId" : "string",\r
+  "effectiveDate" : "2015-07-20T15:49:04-07:00",\r
+  "salutation" : "string",\r
+  "firstName" : "string",\r
+  "lastName" : "string",\r
+  "dateOfBirth" : "2015-07-20T15:49:04-07:00",\r
+  "gender" : "string",\r
+  "email" : "string",\r
+  "phoneNumbers" : [ {\r
+    "type" : "Home",\r
+    "number" : "string"\r
+  } ],\r
+  "addresses" : [ {\r
+    "type" : "Street",\r
+    "dpid" : "string",\r
+    "line1" : "string",\r
+    "line2" : "string",\r
+    "suburb" : "string",\r
+    "state" : "string",\r
+    "country" : "string",\r
+    "postcode" : "string"\r
+  } ],\r
+  "hasReturnedMail" : true\r
+}</con:request>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+    </con:request>
+    <con:request name="Request 2" id="d31a7b88-be8a-45d7-8976-cd78fb5e9fba" mediaType="text/json">
+      <con:settings/>
+      <con:endpoint>http://envd-webservices.australianunity.com.au</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+    </con:request>
+    <con:request name="Request 3" id="7546c029-2f06-42cc-b632-db887efb41d6" mediaType="text/xml">
+      <con:settings/>
+      <con:endpoint>http://envd-webservices.australianunity.com.au</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+    </con:request>
+    <con:request name="Request 4" id="6132da4e-d615-4307-ad38-136aef233e7c" mediaType="application/x-www-form-urlencoded">
+      <con:settings/>
+      <con:endpoint>http://envd-webservices.australianunity.com.au</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

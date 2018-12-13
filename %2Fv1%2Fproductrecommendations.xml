@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/v1/productrecommendations/states/{stateCode}/scales/{scaleCode}/hospitalLevel/{hospitalLevel}/extrasLevel/{extrasLevel}" path="/v1/productrecommendations/states/{stateCode}/scales/{scaleCode}/hospitalLevel/{hospitalLevel}/extrasLevel/{extrasLevel}" id="c085c39d-b7d6-40e4-89c7-79a33a823563" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="c085c39d-b7d6-40e4-89c7-79a33a823563fileName">%2Fv1%2Fproductrecommendations%2Fstates%2F%7BstateCode%7D%2Fscales%2F%7BscaleCode%7D%2FhospitalLevel%2F%7BhospitalLevel%7D%2FextrasLevel%2F%7BextrasLevel%7D</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter required="true">
+      <con:name>stateCode</con:name>
+      <con:style>TEMPLATE</con:style>
+      <con:description>ACT|NSW|NT|QLD|SA|TAS|VIC|WA</con:description>
+    </con:parameter>
+    <con:parameter required="true">
+      <con:name>scaleCode</con:name>
+      <con:style>TEMPLATE</con:style>
+      <con:description>Single|Couple|Family|SingleParentFamily</con:description>
+    </con:parameter>
+    <con:parameter required="true">
+      <con:name>hospitalLevel</con:name>
+      <con:style>TEMPLATE</con:style>
+      <con:description>Basic|Mid|Top|Pregnancy|None</con:description>
+    </con:parameter>
+    <con:parameter required="true">
+      <con:name>extrasLevel</con:name>
+      <con:style>TEMPLATE</con:style>
+      <con:description>Basic|Mid|Top|None</con:description>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="ProductRecommendations_GetProductRecommendations" id="f0052048-a353-40d2-b2d8-395bfe51405e" method="GET">
+    <con:description/>
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent>{ }</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>text/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent xsi:nil="true"/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>text/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent xsi:nil="true"/>
+    </con:representation>
+    <con:request name="Request 1" id="adc41d69-d9e1-47d9-bd43-1bdfbda71c79" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>http://enve-webservices.australianunity.com.au</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="36a29dad-5845-477e-bd56-1f252768e89c">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:request>
+    <con:environmentSpec>
+      <con:entry environmentId="36a29dad-5845-477e-bd56-1f252768e89c">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:method>
+  <con:environmentSpec>
+    <con:entry environmentId="36a29dad-5845-477e-bd56-1f252768e89c">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:resource>

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/v2/AU/members/{membershipNumber}/{memberNumber}/{effectiveDate}" path="/v2/AU/members/{membershipNumber}/{memberNumber}/{effectiveDate}" id="f45f987a-74d1-4d83-b78e-cdfb47e5d4ad" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="f45f987a-74d1-4d83-b78e-cdfb47e5d4adfileName">%2Fv2%2FAU%2Fmembers%2F%7BmembershipNumber%7D%2F%7BmemberNumber%7D%2F%7BeffectiveDate%7D</con:setting>
+  </con:settings>
+  <con:parameters>
+    <con:parameter required="true">
+      <con:name>membershipNumber</con:name>
+      <con:style>TEMPLATE</con:style>
+      <con:description xsi:nil="true"/>
+    </con:parameter>
+    <con:parameter required="true">
+      <con:name>memberNumber</con:name>
+      <con:style>TEMPLATE</con:style>
+      <con:description xsi:nil="true"/>
+    </con:parameter>
+    <con:parameter required="true">
+      <con:name>effectiveDate</con:name>
+      <con:style>TEMPLATE</con:style>
+      <con:description xsi:nil="true"/>
+    </con:parameter>
+  </con:parameters>
+  <con:method name="AuMembersV2_GetMember" id="0c0ba4a1-6c98-4b1c-b0d9-041001aa1b1d" method="GET">
+    <con:description/>
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent>{
+  "membershipNumber" : "string",
+  "memberId" : "string",
+  "effectiveDate" : "2015-07-20T15:49:04-07:00",
+  "salutation" : "Mr",
+  "firstName" : "string",
+  "lastName" : "string",
+  "dateOfBirth" : "2015-07-20T15:49:04-07:00",
+  "certifiedAge" : "string",
+  "gender" : "Male",
+  "email" : "string",
+  "phoneNumbers" : [ {
+    "type" : "Home",
+    "number" : "string"
+  } ],
+  "addresses" : [ {
+    "type" : "Street",
+    "dpid" : "string",
+    "line1" : "string",
+    "line2" : "string",
+    "suburb" : "string",
+    "state" : "string",
+    "country" : "string",
+    "postcode" : "string"
+  } ],
+  "hasReturnedMail" : true,
+  "hasPrivacy" : true
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>text/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent xsi:nil="true"/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>text/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent xsi:nil="true"/>
+    </con:representation>
+    <con:request name="Request 1" id="0b0e9551-a39c-4c34-8cb6-cd524eb3f476" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>http://envd-webservices.australianunity.com.au</con:endpoint>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+  <con:method name="AuMembersV2_PutMember" id="e88182c7-f604-41e3-820c-a240a3b3415f" method="PUT">
+    <con:description/>
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent>{
+  "membershipNumber" : "string",
+  "memberId" : "string",
+  "effectiveDate" : "2015-07-20T15:49:04-07:00",
+  "salutation" : "string",
+  "firstName" : "string",
+  "lastName" : "string",
+  "dateOfBirth" : "2015-07-20T15:49:04-07:00",
+  "gender" : "string",
+  "email" : "string",
+  "phoneNumbers" : [ {
+    "type" : "Home",
+    "number" : "string"
+  } ],
+  "addresses" : [ {
+    "type" : "Street",
+    "dpid" : "string",
+    "line1" : "string",
+    "line2" : "string",
+    "suburb" : "string",
+    "state" : "string",
+    "country" : "string",
+    "postcode" : "string"
+  } ],
+  "hasReturnedMail" : true
+}</con:sampleContent>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>text/json</con:mediaType>
+      <con:params/>
+      <con:sampleContent/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>text/xml</con:mediaType>
+      <con:params/>
+      <con:sampleContent/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/x-www-form-urlencoded</con:mediaType>
+      <con:params/>
+      <con:sampleContent/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent>"string"</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>text/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent xsi:nil="true"/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>text/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent xsi:nil="true"/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>text/json</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>text/xml</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:representation type="REQUEST">
+      <con:mediaType>application/x-www-form-urlencoded</con:mediaType>
+      <con:params/>
+    </con:representation>
+    <con:request name="Request 1" id="b5675171-12df-4ade-af82-6e01632f582d" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>http://envd-webservices.australianunity.com.au</con:endpoint>
+      <con:request>{\r
+  "membershipNumber" : "string",\r
+  "memberId" : "string",\r
+  "effectiveDate" : "2015-07-20T15:49:04-07:00",\r
+  "salutation" : "string",\r
+  "firstName" : "string",\r
+  "lastName" : "string",\r
+  "dateOfBirth" : "2015-07-20T15:49:04-07:00",\r
+  "gender" : "string",\r
+  "email" : "string",\r
+  "phoneNumbers" : [ {\r
+    "type" : "Home",\r
+    "number" : "string"\r
+  } ],\r
+  "addresses" : [ {\r
+    "type" : "Street",\r
+    "dpid" : "string",\r
+    "line1" : "string",\r
+    "line2" : "string",\r
+    "suburb" : "string",\r
+    "state" : "string",\r
+    "country" : "string",\r
+    "postcode" : "string"\r
+  } ],\r
+  "hasReturnedMail" : true\r
+}</con:request>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+    </con:request>
+    <con:request name="Request 2" id="5031c2a5-6618-41d0-86bf-e8f797af5629" mediaType="text/json">
+      <con:settings/>
+      <con:endpoint>http://envd-webservices.australianunity.com.au</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+    </con:request>
+    <con:request name="Request 3" id="0f2f1dfc-f9cd-45be-b89b-90e5f6a2ca19" mediaType="text/xml">
+      <con:settings/>
+      <con:endpoint>http://envd-webservices.australianunity.com.au</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+    </con:request>
+    <con:request name="Request 4" id="73bd45eb-39bf-44fc-95a3-b6f2da41164d" mediaType="application/x-www-form-urlencoded">
+      <con:settings/>
+      <con:endpoint>http://envd-webservices.australianunity.com.au</con:endpoint>
+      <con:request/>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

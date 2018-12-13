@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:resource name="/v2/servicecheck/test" path="/v2/servicecheck/test" id="85cc59fd-9066-42f3-97f3-88b2855f5183" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="85cc59fd-9066-42f3-97f3-88b2855f5183fileName">%2Fv2%2Fservicecheck%2Ftest</con:setting>
+  </con:settings>
+  <con:parameters/>
+  <con:method name="ServiceCheckV2_GetTestAsync" id="c1d75efb-be94-4c76-ba41-fc83da056b77" method="GET">
+    <con:description/>
+    <con:settings/>
+    <con:parameters/>
+    <con:representation type="RESPONSE">
+      <con:mediaType>application/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent>{ }</con:sampleContent>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>text/json</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent xsi:nil="true"/>
+    </con:representation>
+    <con:representation type="RESPONSE">
+      <con:mediaType>text/xml</con:mediaType>
+      <con:status>200</con:status>
+      <con:params/>
+      <con:sampleContent xsi:nil="true"/>
+    </con:representation>
+    <con:request name="Request 1" id="43e23b9a-193d-41e3-924a-6a23d31dce96" mediaType="application/json">
+      <con:settings/>
+      <con:endpoint>http://envd-webservices.australianunity.com.au</con:endpoint>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:parameters/>
+    </con:request>
+  </con:method>
+</con:resource>

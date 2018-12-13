@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="4b0ecf8e-3bf4-4a07-999c-03c5d6baaf3c" discardOkResults="true" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="SmileProviderServiceSearch TestCase" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" maxResults="2" xmlns:con="http://eviware.com/soapui/config">
+  <con:description>The test case generated for the REST resource [/Provider/{id}] located at [/Provider/{id}]</con:description>
+  <con:settings>
+    <con:setting id="dd6861ff-bed2-4c82-96e9-19eca3785426fileName">SmileProviderServiceById-TestCase</con:setting>
+    <con:setting id="com.smartbear.ready.history.view.ClientResultsView$OptionsForm@disable_log">false</con:setting>
+    <con:setting id="com.smartbear.ready.history.view.ClientResultsView$OptionsForm@errors_only">false</con:setting>
+    <con:setting id="com.smartbear.ready.history.view.ClientResultsView$OptionsForm@follow">false</con:setting>
+    <con:setting id="4b0ecf8e-3bf4-4a07-999c-03c5d6baaf3cfileName">SmileProviderServiceSearch-TestCase</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:testStep type="datasource" name="Microservices-ProviderSearchService DataSource" id="ed234862-b35d-411e-86d7-4daa60d134fe">
+    <con:settings>
+      <con:setting id="com.eviware.soapui.impl.wsdl.teststeps.datasource.DataSourceContainer@prepared-properties">&lt;xml-fragment/></con:setting>
+    </con:settings>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Excel">
+        <con:configuration>
+          <file>DataSource/Microservices.xlsx</file>
+          <worksheet>SmileProviderServiceData</worksheet>
+          <cell>A2</cell>
+          <ignoreEmpty>true</ignoreEmpty>
+          <evaluateFormulas>false</evaluateFormulas>
+        </con:configuration>
+      </con:dataSource>
+      <con:shared>true</con:shared>
+      <con:restartShared>true</con:restartShared>
+      <con:property>id</con:property>
+      <con:property>providerName</con:property>
+      <con:property>practiceName</con:property>
+      <con:property>Addressline1</con:property>
+      <con:property>Addressline2</con:property>
+      <con:property>Suburb</con:property>
+      <con:property>State</con:property>
+      <con:property>Postcode</con:property>
+      <con:property>contactNumber</con:property>
+      <con:property>emailAddress</con:property>
+      <con:property>isPrivate</con:property>
+      <con:property>Status</con:property>
+      <con:property>isDelete</con:property>
+      <con:property>isUpdate</con:property>
+      <con:property>errorMessage</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="ProviderService-SearchProviderById" id="4234ae3d-545c-4e29-9c76-97e79f1df641">
+    <con:settings/>
+    <con:config service="Health.ProviderService 2" resourcePath="/Health.ProviderService/Provider/Search" methodName="Provider_SearchProvider" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="ProviderService-SearchProviderById" id="c2f4c4c6-8631-4f50-a927-7f73b3fd3464" mediaType="application/json" postQueryString="false">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          <con:setting id="RecordRequestRepresentations">false</con:setting>
+        </con:settings>
+        <con:request>{
+  "providerType": "smile",
+  "PracticeName" :"${Microservices-ProviderSearchService DataSource#practiceName}",
+  "providerName" :"${Microservices-ProviderSearchService DataSource#providerName}",   
+  "latitude": "",
+  "longtitude": "",
+  "pageNumber": 0
+}</con:request>
+        <con:originalUri>http://envd-webservices.australianunity.com.au/Health.ProviderService/Provider/1122</con:originalUri>
+        <con:assertion type="XPath Match" id="bd71d02f-1589-4773-b0c4-44c2abea9c08" name="ProviderName Match">
+          <con:configuration>
+            <path>declare namespace ns1='http://envd-webservices.australianunity.com.au/Health.ProviderService/Provider/1122';
+//ns1:Response[1]/ns1:providers[1]/ns1:e[1]/ns1:providerName[1]</path>
+            <content>${Microservices-ProviderSearchService DataSource#providerName}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="47d516bd-a166-4957-9275-cf78131b67b3" name="Practice Name">
+          <con:configuration>
+            <path>declare namespace ns1='http://envd-webservices.australianunity.com.au/Health.ProviderService/Provider/1122';
+//ns1:Response[1]/ns1:providers[1]/ns1:e[1]/ns1:practiceName[1]</path>
+            <content>${Microservices-ProviderSearchService DataSource#practiceName}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="1e9551e4-0990-43eb-abd7-836fbad7180e" name="XPath Match Address1">
+          <con:configuration>
+            <path>declare namespace ns1='http://envd-webservices.australianunity.com.au/Health.ProviderService/Provider/1122';
+//ns1:Response[1]/ns1:providers[1]/ns1:e[1]/ns1:addressLine1[1]</path>
+            <content>${Microservices-ProviderSearchService DataSource#Addressline1}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="ab28d03e-3309-45c0-94dd-6aff91cd1ea0" name="XPath Match address2">
+          <con:configuration>
+            <path>declare namespace ns1='http://envd-webservices.australianunity.com.au/Health.ProviderService/Provider/1122';
+//ns1:Response[1]/ns1:providers[1]/ns1:e[1]/ns1:addressLine2[1]</path>
+            <content>${Microservices-ProviderSearchService DataSource#Addressline2}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="cdc77ad4-9bc1-4e84-a227-cf9c8cbfcb2d" name="XPath Match suburb">
+          <con:configuration>
+            <path>declare namespace ns1='http://envd-webservices.australianunity.com.au/Health.ProviderService/Provider/1122';
+//ns1:Response[1]/ns1:providers[1]/ns1:e[1]/ns1:suburb[1]</path>
+            <content>${Microservices-ProviderSearchService DataSource#Suburb}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="df09764d-2152-4467-b0bc-279465e6ca91" name="XPath Match POstCode">
+          <con:configuration>
+            <path>declare namespace ns1='http://envd-webservices.australianunity.com.au/Health.ProviderService/Provider/1122';
+//ns1:Response[1]/ns1:providers[1]/ns1:e[1]/ns1:postcode[1]</path>
+            <content>${Microservices-ProviderSearchService DataSource#Postcode}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="76125d80-c85f-4aba-a2fb-ffa284d6a4e3" name="XPath Match Contact Details">
+          <con:configuration>
+            <path>declare namespace ns1='http://envd-webservices.australianunity.com.au/Health.ProviderService/Provider/1122';
+//ns1:Response[1]/ns1:providers[1]/ns1:e[1]/ns1:contactNumber[1]</path>
+            <content>${Microservices-ProviderSearchService DataSource#contactNumber}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="8fdf15a5-ebbb-44e3-87c9-52639702d23a" name="XPath Match Email Address">
+          <con:configuration>
+            <path>declare namespace ns1='http://envd-webservices.australianunity.com.au/Health.ProviderService/Provider/1122';
+//ns1:Response[1]/ns1:providers[1]/ns1:e[1]/ns1:emailAddress[1]</path>
+            <content>${Microservices-ProviderSearchService DataSource#emailAddress}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="8de968af-1b09-41f7-8051-fa0e84488831" name="XPath Match State">
+          <con:configuration>
+            <path>declare namespace ns1='http://envd-webservices.australianunity.com.au/Health.ProviderService/Provider/1122';
+//ns1:Response[1]/ns1:providers[1]/ns1:e[1]/ns1:state[1]</path>
+            <content>${Microservices-ProviderSearchService DataSource#State}</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="df5a4418-a6eb-4d34-a849-93e28177e9ce" name="XPath Match Specialities">
+          <con:configuration>
+            <path>declare namespace ns1='http://envd-webservices.australianunity.com.au/Health.ProviderService/Provider/1122';
+//ns1:Response[1]/ns1:providers[1]/ns1:e[1]/ns1:specialities[1]</path>
+            <content>Dental</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="XPath Match" id="1075a789-6c77-48a9-bfb2-016e911fe267" name="XPath Match Provider Types">
+          <con:configuration>
+            <path>declare namespace ns1='http://envd-webservices.australianunity.com.au/Health.ProviderService/Provider/1122';
+//ns1:Response[1]/ns1:providers[1]/ns1:e[1]/ns1:providerType[1]</path>
+            <content>smile</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="MessageContentAssertion" id="6dec974a-06f3-4a5d-a621-8fdcda82c8d8" name="Message Content Assertion">
+          <con:configuration xsi:type="con:MessageContentAssertion">
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://envd-webservices.australianunity.com.au/Health.ProviderService/Provider/1122';
+//ns1:Response[1]/ns1:providers[1]/ns1:e[1]/ns1:longitude[1]</con:xpath>
+              <con:element>longitude</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>!=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue/>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:elements>
+              <con:xpath>declare namespace ns1='http://envd-webservices.australianunity.com.au/Health.ProviderService/Provider/1122';
+//ns1:Response[1]/ns1:providers[1]/ns1:e[1]/ns1:latitude[1]</con:xpath>
+              <con:element>latitude</con:element>
+              <con:type xsi:nil="true"/>
+              <con:operator>!=</con:operator>
+              <con:enabled>true</con:enabled>
+              <con:expectedValue/>
+              <con:hasValue>false</con:hasValue>
+              <con:numberType>false</con:numberType>
+            </con:elements>
+            <con:originalMessage><![CDATA[<Response xmlns="http://envd-webservices.australianunity.com.au/Health.ProviderService/Provider/1122">
+   <providers>
+      <e>
+         <id>0</id>
+         <sourceProviderId>37167</sourceProviderId>
+         <providerName>Dentist &amp; Co.</providerName>
+         <practiceName>Dr Saade Saade</practiceName>
+         <dpid>36319565</dpid>
+         <addressLine1>1 / 3 Montague Street</addressLine1>
+         <addressLine2/>
+         <suburb>Balmain</suburb>
+         <state>NSW</state>
+         <postcode>2041</postcode>
+         <contactNumber>298103044</contactNumber>
+         <emailAddress>info@dentistandco.com.au</emailAddress>
+         <bookingUrl/>
+         <longitude>151.1777206</longitude>
+         <latitude>-33.8572373</latitude>
+         <comments/>
+         <isPrivate>true</isPrivate>
+         <isDelete>false</isDelete>
+         <isUpdate>false</isUpdate>
+         <specialities>Dental</specialities>
+         <providerTypes>smile</providerTypes>
+         <modifiedBy>wM</modifiedBy>
+         <createdDatetimeUtc>20/08/2018 2:56:15 AM</createdDatetimeUtc>
+         <modifiedDatetimeUtc>20/08/2018 2:56:15 AM</modifiedDatetimeUtc>
+         <totalOverallRecords>1</totalOverallRecords>
+      </e>
+   </providers>
+   <totalOverallRecords>1</totalOverallRecords>
+</Response>]]></con:originalMessage>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:parameters>
+          <entry key="id" value="${Microservices-ProviderSearchService DataSource#id}" xmlns="http://eviware.com/soapui/config"/>
+        </con:parameters>
+        <con:environmentSpec>
+          <con:entry environmentId="36a29dad-5845-477e-bd56-1f252768e89c">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="Microservices-ProviderSearchService DataSource Loop" id="af102547-8ea5-4f80-a1be-2e7ff1c7b67b">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>Microservices-ProviderSearchService DataSource</dataSourceStep>
+      <targetStep>ProviderService-SearchProviderById</targetStep>
+      <discardResults>true</discardResults>
+    </con:config>
+  </con:testStep>
+  <con:properties/>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>c103d8d1-fd18-49ca-bc4b-510917162a82</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>8dbba0de-d103-465a-bc69-9df1e3cad9cb</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>c5d78654-9e48-4b60-aa38-33e8852ba5f8</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:environmentSpec>
+    <con:entry environmentId="36a29dad-5845-477e-bd56-1f252768e89c">
+      <con:authProfile>Inherit From Parent</con:authProfile>
+    </con:entry>
+  </con:environmentSpec>
+</con:testCase>
